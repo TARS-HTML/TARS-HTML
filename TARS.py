@@ -97,19 +97,20 @@ def voice():
     data = request.json
     text = data.get("text", "")
 
-try:
-    audio = generate(
-        text=text,
-        voice=Voice(
-            voice_id="EXAVITQu4vr4xnSDxMaL",  # this is usually "James"
-            settings=VoiceSettings(
-                stability=0.3,
-                similarity_boost=0.75
-            )
-        ),
-        model="eleven_multilingual_v2",
-        stream=True
-    )
+    try:
+        audio = generate(
+            text=text,
+            voice=Voice(
+                voice_id="EXAVITQu4vr4xnSDxMaL",  # this is usually "James"
+                settings=VoiceSettings(
+                    stability=0.3,
+                    similarity_boost=0.75
+                )
+            ),
+            model="eleven_multilingual_v2",
+            stream=True
+        )
+        
         temp_file = tempfile.NamedTemporaryFile(delete=False, suffix=".mp3")
         for chunk in audio:
             temp_file.write(chunk)
