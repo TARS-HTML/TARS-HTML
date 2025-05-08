@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TARS AI Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="tars.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet"/>
+</head>
+<body class="min-h-screen">
+  <canvas id="particleCanvas" style="position:fixed;top:0;left:0;z-index:-1;"></canvas>
+
+  <main class="flex items-center justify-center min-h-screen max-w-6xl mx-auto px-4">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 w-full">
+      <!-- Adjust TARS Panel -->
+      <section class="bg-black/80 p-6 rounded-2xl border border-gray-700 shadow-lg space-y-6">
+        <h2 style="color:#1fcfeb" class="text-xl font-semibold uppercase">Adjust TARS</h2>
+
+        <label class="block text-sm font-medium text-gray-300">Sarcasm
+          <input class="w-full mt-1" style="accent-color:#1fcfeb" id="sarcasm" type="range" min="0" max="100" value="50"/>
+        </label>
+
+        <label class="block text-sm font-medium text-gray-300">Humor
+          <input class="w-full mt-1" style="accent-color:#1fcfeb" id="humor" type="range" min="0" max="100" value="50"/>
+        </label>
+
+        <label class="block text-sm font-medium text-gray-300">Serious
+          <input class="w-full mt-1" style="accent-color:#1fcfeb" id="serious" type="range" min="0" max="100" value="50"/>
+        </label>
+
+        <div class="pt-4">
+          <button onclick="toggleTheme()" class="bg-gray-700 text-white px-3 py-2 rounded hover:bg-gray-600 text-sm w-full">
+            Toggle Theme
+          </button>
+        </div>
+      </section>
+
+      <!-- Ask TARS Panel -->
+      <section class="bg-black/80 p-6 rounded-2xl border border-gray-700 shadow-lg space-y-6 col-span-2">
+        <h2 style="color:#1fcfeb" class="text-xl font-semibold uppercase">Ask TARS</h2>
+        
+        <input id="user-input" type="text" placeholder="What's on your mind?" 
+          onkeydown="if(event.key === 'Enter'){sendMessage();}" 
+          class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-600 placeholder-gray-500 text-white" />
+        
+        <div class="flex gap-4">
+          <button onclick="sendMessage()" 
+            style="background-color:#1fcfeb" 
+            class="transition px-5 py-2 rounded-lg text-white font-semibold shadow-md">
+            Ask TARS
+          </button>
+          <button onclick="startVoiceInput()" 
+            class="bg-gray-700 hover:bg-gray-600 border border-gray-500 text-white px-5 py-2 rounded-lg">
+            🎙 Speak
+          </button>
+        </div>
+        
+        <div id="response" class="bg-gray-900 border border-gray-700 p-4 rounded-md text-gray-200 min-h-[100px]">
+          <span class="text-gray-500">Response will appear here...</span>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="tars.js"></script>
+</body>
+</html>
