@@ -11,7 +11,7 @@ CORS(app)
 
 # API Keys
 co = cohere.Client("thehtLrp9awFharoJCxFbGXtrRaPrNhLXuOyfe67")
-eleven_client = ElevenLabs(api_key="sk_f6c24d852defea9b1603c4f2da3a924455fe04b87152beaa")
+set_api_key("sk_f6c24d852defea9b1603c4f2da3a924455fe04b87152beaa")
 
 # Get the base directory where the Python and HTML files are located
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # This will get the directory of TARSHTML.py
