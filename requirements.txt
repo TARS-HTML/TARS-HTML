@@ -1,0 +1,5 @@
+Flask==2.3.3
+Flask-Cors==3.0.10
+cohere==4.30
+elevenlabs==0.2.26
+gunicorn==21.2.0
